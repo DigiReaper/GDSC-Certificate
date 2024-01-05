@@ -1,4 +1,5 @@
 const submitBtn = document.getElementById("submitBtn");
+
 function formatDate(date) {
   const months = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -9,10 +10,8 @@ function formatDate(date) {
   const month = months[date.getMonth()];
   const year = date.getFullYear();
 
-  return `${month} ${day}, ${year}`;
+  return `Nov 1, 2023`;
 }
-
-
 
 
 const currentDate = new Date();
@@ -54,35 +53,37 @@ if (idMatch) {
   const firstPage = pages[0];
 
   // Draw the name
-  const nameFontSize = 25;
+  const nameFontSize = 47;
   const nameLineHeight = nameFontSize * 1.2;
   const nameTextHeight = nameLineHeight;
   const pageHeight = firstPage.getHeight();
   const nameTextWidth = name.length * nameFontSize;
   const pageWidth = 842;
-  const nameX = (pageWidth - nameTextWidth) / 2;
-  const nameY = (pageHeight - nameTextHeight) / 2;
+  // const nameX = (pageWidth - nameTextWidth) / 2;
+  // const nameY = (pageHeight - nameTextHeight) / 2;
+  const nameX = 254;
+  const nameY = 440;
 
   firstPage.drawText(name, {
-    x: 254,
-    y: 440,
+    x: 76.5,
+    y: 500,
     size: nameFontSize,
     font: SanChezFont,
-    color: rgb(6 / 255, 5 / 255, 5 / 255), // Set color to #060505
+    color: rgb(95 / 255, 99/ 255, 104/ 255), // Set color to #060505
   });
 
   // Draw the grade
-  const gradeFontSize = 11.85;
+  const gradeFontSize = 12.85;
   const gradeX = (pageWidth - nameTextWidth) / 2;
   const gradeY = nameY - 30;
   const gradeText = formattedDate;
   
   firstPage.drawText(gradeText, {
-    x: 254.87,
-    y: 477,
+    x: 76.5,
+    y: 610,
     size: gradeFontSize,
     font: SanChezFont,
-    color: rgb(140 / 255, 143 / 255, 148 / 255), // Set color to #8C8F94
+    color: rgb(95 / 255, 99/ 255, 104/ 255), // Set color to #8C8F94
 
   });
 
@@ -113,10 +114,10 @@ if (idMatch) {
 
   // Embed the QR code image on the PDF
   const qrCodeImage = await pdfDoc.embedPng(qrCodeImageData);
-  const qrCodeWidth = 80; // Set the width of the QR code image
-  const qrCodeHeight = 80; // Set the height of the QR code image
-  const qrCodeX = pageWidth - qrCodeWidth - 65; // Adjust the position
-  const qrCodeY = 70; // Adjust the position
+  const qrCodeWidth = 75; // Set the width of the QR code image
+  const qrCodeHeight = 75; // Set the height of the QR code image
+  const qrCodeX = 550; // Adjust the position
+  const qrCodeY = 67; // Adjust the position
   firstPage.drawImage(qrCodeImage, {
     x: qrCodeX,
     y: qrCodeY,
